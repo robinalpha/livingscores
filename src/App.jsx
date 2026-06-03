@@ -313,64 +313,53 @@ function SeveCardView({card,lang,onAddToScore,inScore,onRemoveFromScore,compact}
   );
 }
 
-// ── SCORE COMPOSER ──────────────────────────────────────────────────────
-function ScoreComposer({score,allSeve,onAdd,onRemove,onClear,lang,onBack}){
-  useScrollTop("composer");
+function MultiDraw({cards, lang, onBack}){
+  useScrollTop("multidraw");
   const L=LANG[lang];
-  const available=allSeve.filter(c=>!score.find(s=>s.id===c.id));
-  const bg="#f4faf0";
+  const isDark=false;
   return(
-    <div style={{minHeight:"100vh",background:bg,fontFamily:"'Lora',Georgia,serif",color:T.ink}}>
-      <div style={{position:"fixed",top:-30,right:-30,opacity:0.06,pointerEvents:"none"}}><SapLeaf seed={9} color={T.sap} w={250} h={175}/></div>
+    <div style={{minHeight:"100vh",background:"#f4faf0",fontFamily:"'Lora',Georgia,serif",color:T.ink}}>
+      <div style={{position:"fixed",top:-30,right:-30,opacity:0.06,pointerEvents:"none"}}><SapLeaf seed={9} color={T.sapLight} w={250} h={175}/></div>
       <div style={{padding:"16px 22px",display:"flex",justifyContent:"space-between",alignItems:"center",position:"relative",zIndex:1}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:T.inkFaint,cursor:"pointer",fontSize:"11px",letterSpacing:"0.15em",textTransform:"uppercase",fontFamily:"inherit",textDecoration:"underline"}}>← retour</button>
-        {score.length>0&&<button onClick={onClear} style={{background:"none",border:"none",color:T.inkFaint,cursor:"pointer",fontSize:"11px",letterSpacing:"0.15em",textTransform:"uppercase",fontFamily:"inherit",textDecoration:"underline"}}>{L.scoreClear}</button>}
+        <button onClick={onBack} style={{background:"none",border:"none",color:T.inkFaint,cursor:"pointer",fontSize:"11px",letterSpacing:"0.15em",textTransform:"uppercase",fontFamily:"inherit",textDecoration:"underline"}}>{L.back}</button>
+        <div style={{fontSize:"9px",letterSpacing:"0.3em",color:T.sapLight,textTransform:"uppercase"}}>{cards.length} {lang==="fr"?"cartes":"cards"}</div>
       </div>
-      <div style={{maxWidth:"560px",margin:"0 auto",padding:"8px 22px 60px",position:"relative",zIndex:1}}>
-        {/* Score display */}
-        <div style={{marginBottom:"28px"}}>
-          <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"14px"}}>
-            <div style={{width:"20px",height:"1.5px",background:T.sapLight}}/>
-            <span style={{fontSize:"9px",letterSpacing:"0.4em",color:T.sapLight,textTransform:"uppercase"}}>{L.scoreSelected} · {score.length}/4</span>
-            <div style={{flex:1,height:"1px",background:T.paperDark}}/>
-          </div>
-          {score.length===0?(
-            <div style={{background:"#fff",border:`1px dashed ${T.paperDark}`,borderRadius:"16px",padding:"28px",textAlign:"center",color:T.inkFaint,fontStyle:"italic",fontSize:"14px"}}>
-              {lang==="fr"?"Sélectionne 1 à 4 cartes pour composer ton score":"Select 1 to 4 cards to compose your score"}
-            </div>
-          ):(
-            <div style={{display:"grid",gridTemplateColumns:score.length===1?"1fr":score.length===2?"1fr 1fr":"1fr 1fr",gap:"10px"}}>
-              {score.map(card=>{
-                const d=card[lang]||card.fr;const isDual=card.type==="dual";const color=isDual?T.sap:T.sapLight;const seed=seedOf(card.id);
-                return(
-                  <div key={card.id} style={{background:"#fff",border:`2px solid ${color}`,borderRadius:"16px",padding:"16px",position:"relative",overflow:"hidden"}}>
-                    <div style={{position:"absolute",bottom:-10,right:-10,opacity:0.1}}><SapLeaf seed={seed} color={color} w={80} h={56}/></div>
-                    <div style={{fontSize:"8px",letterSpacing:"0.3em",color,textTransform:"uppercase",marginBottom:"6px"}}>{lang==="fr"?isDual?"Duale":"Solo":isDual?"Dual":"Solo"}</div>
-                    <div style={{fontSize:score.length<=2?"30px":"22px",fontWeight:"400",fontStyle:"italic",color:T.sap,lineHeight:1.0,marginBottom:"8px"}}>{d.verb}</div>
-                    <div style={{display:"flex",gap:"4px",flexWrap:"wrap",marginBottom:"10px"}}>
-                      {d.qualities.map((q,i)=><span key={i} style={{fontSize:"10px",color:T.inkFaint,background:T.paperWarm,padding:"2px 6px",borderRadius:"999px"}}>{q}</span>)}
-                    </div>
-                    {d.invitation&&score.length<=2&&<p style={{fontSize:"12px",color:T.inkMid,lineHeight:1.55,fontStyle:"italic",margin:"0 0 10px",borderLeft:`1.5px solid ${color}`,paddingLeft:"10px"}}>{d.invitation}</p>}
-                    <button onClick={()=>onRemove(card.id)} style={{background:"none",border:"none",color:T.inkFaint,cursor:"pointer",fontSize:"10px",padding:0,fontFamily:"inherit",textDecoration:"underline"}}>{L.scoreRemove}</button>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+      <div style={{padding:"8px 22px 60px",maxWidth:"560px",margin:"0 auto",position:"relative",zIndex:1}}>
+        <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"24px"}}>
+          <div style={{width:"20px",height:"1.5px",background:T.sapLight}}/>
+          <span style={{fontSize:"9px",letterSpacing:"0.4em",color:T.sapLight,textTransform:"uppercase"}}>
+            Traversées · {lang==="fr"?"Score pioché":"Drawn score"}
+          </span>
+          <div style={{flex:1,height:"1px",background:T.paperDark}}/>
         </div>
-        {/* Card picker */}
-        {score.length<4&&(
-          <>
-            <div style={{fontSize:"9px",letterSpacing:"0.3em",color:T.inkFaint,textTransform:"uppercase",marginBottom:"12px"}}>
-              {lang==="fr"?"Ajouter une carte":"Add a card"}
+        {cards.map((card,i)=>{
+          const d=card[lang]||card.fr;
+          const isDual=card.type!=="verbe_solo";
+          const color=isDual?T.sap:T.sapLight;
+          const seed=seedOf(card.id);
+          const brd={style:"solid",size:1,color:"D8D0C8"};
+          return(
+            <div key={card.id} style={{background:"#fff",borderRadius:"16px",padding:"22px",marginBottom:"16px",position:"relative",overflow:"hidden",boxShadow:"0 2px 12px rgba(58,90,26,0.08)",borderLeft:`4px solid ${color}`}}>
+              <div style={{position:"absolute",bottom:-16,right:-16,opacity:0.08,pointerEvents:"none"}}><SapLeaf seed={seed+i} color={color} w={110} h={78}/></div>
+              <div style={{display:"flex",alignItems:"center",gap:"8px",marginBottom:"12px"}}>
+                <span style={{fontSize:"8px",letterSpacing:"0.35em",color,textTransform:"uppercase"}}>{lang==="fr"?({verbe_solo:"Verbe",verbe_dual:"Verbe dual",qualite:"Qualité",contrainte:"Contrainte"})[card.type]:({verbe_solo:"Verb",verbe_dual:"Dual verb",qualite:"Quality",contrainte:"Constraint"})[card.type]}</span>
+                {cards.length>1&&<span style={{fontSize:"9px",color:T.inkFaint,marginLeft:"auto"}}>{i+1}/{cards.length}</span>}
+              </div>
+              <div style={{fontSize:cards.length<=2?"48px":cards.length===3?"36px":"30px",fontWeight:"400",fontStyle:"italic",color:T.sap,lineHeight:1.0,letterSpacing:"-0.02em",marginBottom:"14px"}}>{d.verb}</div>
+              <div style={{display:"flex",gap:"6px",flexWrap:"wrap",marginBottom:d.invitation?"14px":"0"}}>
+                {d.qualities.map((q,qi)=><span key={qi} style={{fontSize:"12px",color:T.inkLight,background:T.paperWarm,padding:"4px 10px",borderRadius:"999px",fontStyle:"italic"}}>{q}</span>)}
+              </div>
+              {d.invitation&&<p style={{fontSize:"15px",color:T.inkMid,lineHeight:1.65,fontStyle:"italic",margin:0,borderLeft:`2px solid ${color}`,paddingLeft:"12px"}}>{d.invitation}</p>}
             </div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px"}}>
-              {available.map(card=>(
-                <SeveCardView key={card.id} card={card} lang={lang} onAddToScore={onAdd} inScore={false} compact/>
-              ))}
-            </div>
-          </>
-        )}
+          );
+        })}
+        <div style={{marginTop:"8px",textAlign:"center"}}>
+          <p style={{fontSize:"13px",color:T.inkFaint,fontStyle:"italic",lineHeight:1.6}}>
+            {lang==="fr"
+              ?"Improvise depuis ces cartes — seul·e ou à plusieurs, avec ou sans public. Laisse l'espace répondre."
+              :"Improvise from these cards — alone or together, with or without audience. Let the space respond."}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -550,8 +539,8 @@ function BrowseScreen({activeDeck,onBack,lang,setLang}){
   const isTerritoires=activeDeck==="territoires";
   const isVivant=activeDeck==="vivant";
   const isTraversees=activeDeck==="traversees";
-  const [score,setScore]=useState([]);
-  const [showComposer,setShowComposer]=useState(false);
+  const [drawCount,setDrawCount]=useState(1);
+  const [drawnCards,setDrawnCards]=useState(null);
 
   const deckCards = {
     milieux: CARDS=>CARDS.filter(c=>c.deck==="milieux"),
@@ -582,7 +571,7 @@ function BrowseScreen({activeDeck,onBack,lang,setLang}){
   const addToTray=card=>{if(!tray.find(c=>c.id===card.id))setTray(t=>[...t,card]);};
   const removeFromTray=id=>setTray(t=>t.filter(c=>c.id!==id));
 
-  if(isTraversees&&showComposer)return <ScoreComposer score={score} allSeve={allCards.filter(c=>c.deck==="traversees")} onAdd={card=>setScore(s=>[...s,card])} onRemove={id=>setScore(s=>s.filter(c=>c.id!==id))} onClear={()=>setScore([])} lang={lang} onBack={()=>setShowComposer(false)}/>;
+  if(isTraversees&&drawnCards)return <MultiDraw cards={drawnCards} lang={lang} onBack={()=>setDrawnCards(null)}/>;
   if(selectedCard)return(<>{<CardDetail card={selectedCard} onBack={()=>setSelectedCard(null)} onAddToTray={addToTray} inTray={!!tray.find(c=>c.id===selectedCard.id)} sessionActive={screen==="session"} lang={lang}/>}{screen==="session"&&<div style={{position:"sticky",bottom:0}}><SessionTray cards={tray} onOpen={setSelectedCard} onRemove={removeFromTray} onDraw={drawToTray} config={sessionConfig} lang={lang} activeDeck={activeDeck}/></div>}{showTimer&&<Timer onClose={()=>setShowTimer(false)} lang={lang}/>}</>);
   if(screen==="setup")return <SessionSetup onStart={cfg=>{setSessionConfig(cfg);setScreen("session");setTray([]);}} onCancel={()=>setScreen("browse")} activeDeck={activeDeck} lang={lang}/>;
 
@@ -636,11 +625,30 @@ function BrowseScreen({activeDeck,onBack,lang,setLang}){
       }
 
       {isTraversees&&(
-        <button onClick={()=>setShowComposer(true)} style={{width:"100%",padding:"11px 18px",marginBottom:"8px",background:`${T.sap}18`,border:`1.5px solid ${T.sap}`,borderRadius:"999px",color:T.sap,cursor:"pointer",fontFamily:"'Lora',Georgia,serif",fontSize:"14px",fontStyle:"italic",letterSpacing:"0.03em",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <span>✦ {L.scoreCompose}</span>
-          {score.length>0&&<span style={{fontSize:"12px",background:T.sap,color:"#fff",borderRadius:"999px",padding:"2px 8px"}}>{score.length} {L.scoreCards}</span>}
-        </button>
+        <div style={{marginBottom:"10px"}}>
+          <div style={{display:"flex",alignItems:"center",gap:"8px",marginBottom:"8px"}}>
+            <span style={{fontSize:"12px",color:T.inkFaint,fontStyle:"italic"}}>{lang==="fr"?"Piocher":"Draw"}</span>
+            {[1,2,3,4].map(n=>(
+              <button key={n} onClick={()=>setDrawCount(n)} style={{width:"32px",height:"32px",borderRadius:"50%",border:`1.5px solid ${drawCount===n?T.sapLight:T.paperDark}`,background:drawCount===n?T.sapLight:"transparent",color:drawCount===n?"#fff":T.inkFaint,cursor:"pointer",fontFamily:"'Lora',Georgia,serif",fontSize:"14px",fontStyle:"italic",transition:"all 0.15s"}}>{n}</button>
+            ))}
+            <span style={{fontSize:"12px",color:T.inkFaint,fontStyle:"italic"}}>{lang==="fr"?drawCount===1?"carte":"cartes":drawCount===1?"card":"cards"}</span>
+          </div>
+          <button onClick={()=>{
+            const p=[...pool];
+            const picks=[];
+            const used=new Set();
+            while(picks.length<Math.min(drawCount,p.length)){
+              const idx=Math.floor(Math.random()*p.length);
+              if(!used.has(idx)){used.add(idx);picks.push(p[idx]);}
+            }
+            setDrawnCards(picks);
+          }} style={{width:"100%",padding:"13px 18px",background:`linear-gradient(135deg,${T.sapLight},${T.sage})`,border:"none",borderRadius:"999px",color:"#fff",cursor:"pointer",fontFamily:"'Lora',Georgia,serif",fontSize:"14px",fontStyle:"italic",letterSpacing:"0.03em",boxShadow:`0 4px 18px ${T.sapLight}40`,position:"relative",overflow:"hidden"}}>
+            <div style={{position:"absolute",right:-8,top:-8,opacity:0.15}}><SapLeaf seed={55} color="#fff" w={90} h={62}/></div>
+            <span style={{position:"relative"}}>✦ {lang==="fr"?`Piocher ${drawCount} ${drawCount===1?"carte":"cartes"}`:`Draw ${drawCount} ${drawCount===1?"card":"cards"}`}</span>
+          </button>
+        </div>
       )}
+
       <button onClick={drawRandom} style={{width:"100%",padding:"13px 18px",marginBottom:"10px",background:`linear-gradient(135deg,${primary},${isDark?T.water:isVivant?T.sage:isTerritoires?T.skyLight:T.lichenLight})`,border:"none",borderRadius:"999px",color:"#fff",cursor:"pointer",fontFamily:"'Lora',Georgia,serif",fontSize:"14px",fontStyle:"italic",letterSpacing:"0.03em",boxShadow:`0 4px 18px ${primary}40`,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",right:-8,top:-8,opacity:0.15}}>{isDark?<Spores seed={55} color="#fff" size={72}/>:isVivant?<Leaves seed={55} color="#fff" w={90} h={62}/>:isTerritoires?<Paths seed={55} color="#fff" w={90} h={62}/>:<Sprig seed={55} color="#fff" w={105} h={72}/>}</div>
         <span style={{position:"relative"}}>✦ {L.drawCard}{!isTerritoires&&filterType!=="all"?` — ${lang==="fr"?tMetas[filterType]?.fr:tMetas[filterType]?.en}`:""}{isTerritoires?` — ${lang==="fr"?({ancrer:L.phaseAncrer,traverser:L.phaseTraverser,composer:L.phaseComposer})[phase]:({ancrer:L.phaseAncrer,traverser:L.phaseTraverser,composer:L.phaseComposer})[phase]}`:""}
@@ -665,7 +673,7 @@ function BrowseScreen({activeDeck,onBack,lang,setLang}){
           {activeDeck==="mixed"&&<div style={{fontSize:"7px",letterSpacing:"0.2em",color:isDark?T.stone:T.inkFaint,textTransform:"uppercase",marginBottom:"2px"}}>{card.deck}</div>}
           <div style={{fontSize:"8px",letterSpacing:"0.28em",textTransform:"uppercase",color,marginBottom:"5px"}}>{lang==="fr"?tM[card.type]?.fr:tM[card.type]?.en}</div>
           <div style={{fontSize:"17px",fontStyle:"italic",color:isDark?"#e0d8f0":T.ink,lineHeight:1.2,marginBottom:"5px"}}>{d.title||d.verb}</div>
-          <div style={{fontSize:"11px",color:isDark?"#6a5a7a":T.inkFaint,lineHeight:1.5,fontStyle:"italic"}}>{(d.entry||d.verb||"").slice(0,50)}{(d.entry||d.verb||"").length>50?"…":""}</div>
+          <div style={{fontSize:"11px",color:isDark?"#6a5a7a":T.inkFaint,lineHeight:1.5,fontStyle:"italic"}}>{d.verb?(d.qualities||[]).join(" · "):(d.entry||"").slice(0,50)+((d.entry||"").length>50?"…":"")}</div>
           {hasTQ&&<div style={{marginTop:"6px",display:"flex",gap:"4px"}}>{(d.q||d.question)&&<span style={{fontSize:"8px",padding:"2px 5px",borderRadius:"999px",border:`1px solid ${color}50`,color,opacity:0.8}}>?</span>}{(d.tr||d.trace)&&<span style={{fontSize:"8px",padding:"2px 5px",borderRadius:"999px",border:`1px solid ${T.ochre}50`,color:T.ochre,opacity:0.8}}>✏</span>}</div>}
         </button>);
       })}
