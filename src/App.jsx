@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import React from "react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function useScrollTop(dep) {
   useEffect(() => { window.scrollTo(0, 0); }, [dep]);
@@ -750,6 +751,6 @@ export default function App(){
   const[activeDeck,setActiveDeck]=useState(null);const[lang,setLang]=useState("fr");
   const savedScroll=useRef(0);
   const handleBack=()=>{const y=savedScroll.current;setActiveDeck(null);requestAnimationFrame(()=>window.scrollTo(0,y));};
-  if(!activeDeck)return <ChoiceScreen onChoose={(deck)=>{savedScroll.current=window.scrollY;setActiveDeck(deck);}} onMixed={()=>{savedScroll.current=window.scrollY;setActiveDeck("mixed");}} lang={lang} setLang={setLang}/>;
-  return(<><BrowseScreen activeDeck={activeDeck} onBack={handleBack} lang={lang} setLang={setLang}/><style>{`@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');*{box-sizing:border-box;}::-webkit-scrollbar{display:none;}button:focus{outline:none;}textarea:focus{outline:none;}`}</style></>);
+  if(!activeDeck)return (<><SpeedInsights /><ChoiceScreen onChoose={(deck)=>{savedScroll.current=window.scrollY;setActiveDeck(deck);}} onMixed={()=>{savedScroll.current=window.scrollY;setActiveDeck("mixed");}} lang={lang} setLang={setLang}/></>);
+  return(<><SpeedInsights /><BrowseScreen activeDeck={activeDeck} onBack={handleBack} lang={lang} setLang={setLang}/><style>{`@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');*{box-sizing:border-box;}::-webkit-scrollbar{display:none;}button:focus{outline:none;}textarea:focus{outline:none;}`}</style></>);
 }
