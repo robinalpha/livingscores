@@ -8,19 +8,19 @@ function useScrollTop(dep) {
 
 const LANG = {
   fr: {
-    appTitle:"Scores Vivants", appSub:"Douze decks pour sentir, traverser et habiter le vivant",
+    appTitle:"Scores Vivants", appSub:"Douze decks pour sentir, traverser et habiter le vivant — seul·e ou à plusieurs",
     choroTitle:"Choreospores", choroSub:"Mycoscores — Maija Hirvanen",
     choroDesc:"31 scores de mouvement somatique créés par Maija Hirvanen.", choroWhen:"idéal pour",
     choroWhenItems:["Vous avez de l'espace pour bouger","Atelier de danse ou mouvement somatique","Scores d'improvisation physique"],
     pelliculesTitle:"Pellicules", pelliculesSub:"Explorations filmiques du vivant",
     pelliculesDesc:"24 cartes pour faire de la caméra un partenaire d'exploration et de mise en lien.", pelliculesWhen:"idéal pour",
-    pelliculesWhenItems:["Vous avez un téléphone ou une caméra","Dehors, dans un lieu vivant","Créer de courtes pièces filmiques"],
+    pelliculesWhenItems:["Surtout en solo, variantes à plusieurs","Vous avez un téléphone ou une caméra","Dehors, dans un lieu vivant","Créer de courtes pièces filmiques"],
     umweltenTitle:"Umwelten", umweltenSub:"Les mondes sensibles du vivant",
     umweltenDesc:"32 cartes pour entrer dans la perception d'autres êtres et élargir l'empathie au-delà de l'humain.", umweltenWhen:"idéal pour",
     umweltenWhenItems:["Seul·e ou en groupe","Cultiver l'émerveillement et l'empathie","Sentir d'autres façons d'habiter le monde"],
     milieuxTitle:"Milieux", milieuxSub:"Deck éco-somatique",
     milieuxDesc:"Attention incarnée au vivant — seuil entre corps et milieu.", milieuxWhen:"idéal pour",
-    milieuxWhenItems:["Exploration d'un lieu, d'un écosystème","Facilitation, recherche-action","Assis·e, en marche ou en mouvement"],
+    milieuxWhenItems:["Seul·e ou en groupe","Exploration d'un lieu, d'un écosystème","Facilitation, recherche-action","Assis·e, en marche ou en mouvement"],
     terrainsTitle:"Terrains", terrainsSub:"Jeu de paysage",
     terrainsDesc:"Invitations ludiques et concrètes — danser avec un arbre, dessiner un mouvement.", terrainsWhen:"idéal pour",
     terrainsWhenItems:["Porte d'entrée accessible et jouante","Enfants, débutant·es, publics mixtes","Légèreté comme porte vers la profondeur"],
@@ -30,8 +30,8 @@ const LANG = {
     territoiresTitle:"Territoires croisés", territoiresSub:"Acteurs de territoire",
     territoiresDesc:"Créer de l'empathie entre visions divergentes d'un lieu — somatique, en trois temps.", territoiresWhen:"idéal pour",
     territoiresWhenItems:["Acteurs de territoire aux visions différentes","Marche de terrain ou atelier de facilitation","Passer des positions aux perceptions","Construire une compréhension commune"],
-    orMix:"Ou mélangez", mixDesc:"Session mixte : piochez dans plusieurs decks.",
-    startMixed:"Session mixte", backToChoice:"← decks",
+    orMix:"Arrivé·e en bas ?", mixDesc:"Laissez le hasard décider, ou explorez toutes les cartes.",
+    randomDeck:"Un deck au hasard", allCardsBtn:"Toutes les cartes", startMixed:"Toutes les cartes", backToChoice:"← decks",
     startSession:"Commencer", sessionActive:"Session active",
     drawCard:"Piocher", allCards:"Toutes", endSession:"Terminer",
     tray:"Plateau", card:"carte", cards:"cartes",
@@ -63,10 +63,10 @@ const LANG = {
     coWhen:"idéal pour", coWhenItems:["Groupe avec accompagnement","Performance devant public","Politiser l'intime"],
     nsTitle:"Natures Sociales", nsSub:"Déconstruire le naturel",
     nsDesc:"La compétition n'est pas la loi de la jungle. Déconstruire les fictions naturalistes par le corps.",
-    nsWhen:"idéal pour", nsWhenItems:["Public sensibilisé à l'écologie et au social","Envie de questionner les idées reçues","Relier sciences du vivant et politique"],
+    nsWhen:"idéal pour", nsWhenItems:["Plutôt en groupe","Public sensibilisé à l'écologie et au social","Envie de questionner les idées reçues","Relier sciences du vivant et politique"],
     myTitle:"Mythologies", mySub:"Cosmologies du monde",
     myDesc:"Mythes de création et figures mythiques du monde entier comme scores somatiques. Habiter d'autres façons de se tenir dans le monde.",
-    myWhen:"idéal pour", myWhenItems:["Exploration spirituelle et culturelle","Travail avec des récits et l'imaginaire","Connexion aux traditions du monde","Profondeur et disponibilité intérieure"],
+    myWhen:"idéal pour", myWhenItems:["Seul·e ou en groupe","Exploration spirituelle et culturelle","Travail avec des récits et l'imaginaire","Connexion aux traditions du monde"],
 
     scoreCompose:"Composer un score",
     scoreSelected:"Score composé",
@@ -80,19 +80,19 @@ const LANG = {
     dualLabel:"Duale",
   },
   en: {
-    appTitle:"Living Scores", appSub:"Twelve decks to feel, cross and inhabit the living world",
+    appTitle:"Living Scores", appSub:"Twelve decks to feel, cross and inhabit the living world — alone or with others",
     choroTitle:"Choreospores", choroSub:"Mycoscores — Maija Hirvanen",
     choroDesc:"31 somatic movement scores by Maija Hirvanen.", choroWhen:"best for",
     choroWhenItems:["You have space to move","Dance or somatic workshop","Physical improvisation scores"],
     pelliculesTitle:"Pellicules", pelliculesSub:"Filmic explorations of the living",
     pelliculesDesc:"24 cards to make the camera a partner for exploration and connection.", pelliculesWhen:"best for",
-    pelliculesWhenItems:["You have a phone or a camera","Outside, in a living place","Creating short filmic pieces"],
+    pelliculesWhenItems:["Mostly solo, variations with others","You have a phone or a camera","Outside, in a living place","Creating short filmic pieces"],
     umweltenTitle:"Umwelten", umweltenSub:"The sensory worlds of the living",
     umweltenDesc:"32 cards to enter the perception of other beings and widen empathy beyond the human.", umweltenWhen:"best for",
     umweltenWhenItems:["Alone or in a group","Cultivating wonder and empathy","Feeling other ways of inhabiting the world"],
     milieuxTitle:"Milieux", milieuxSub:"Ecosomatic deck",
     milieuxDesc:"Embodied attention to the living world.", milieuxWhen:"best for",
-    milieuxWhenItems:["Exploring a place or ecosystem","Facilitation, action-research","Seated, walking, or in movement"],
+    milieuxWhenItems:["Alone or in a group","Exploring a place or ecosystem","Facilitation, action-research","Seated, walking, or in movement"],
     terrainsTitle:"Terrains", terrainsSub:"Landscape play",
     terrainsDesc:"Playful, concrete invitations — dancing with a tree, drawing movement.", terrainsWhen:"best for",
     terrainsWhenItems:["Accessible, playful entry point","Children, beginners, mixed groups","Lightness as a door to depth"],
@@ -102,8 +102,8 @@ const LANG = {
     territoiresTitle:"Crossed territories", territoiresSub:"Territory actors",
     territoiresDesc:"Creating empathy between diverging visions of a place — somatic, in three stages.", territoiresWhen:"best for",
     territoiresWhenItems:["Territory actors with different visions","Field walk or facilitation workshop","Moving from positions to perceptions","Building shared understanding"],
-    orMix:"Or mix", mixDesc:"Mixed session: draw from several decks.",
-    startMixed:"Mixed session", backToChoice:"← decks",
+    orMix:"Reached the bottom?", mixDesc:"Let chance decide, or explore all the cards.",
+    randomDeck:"A random deck", allCardsBtn:"All cards", startMixed:"All cards", backToChoice:"← decks",
     startSession:"Start", sessionActive:"Active session",
     drawCard:"Draw", allCards:"All", endSession:"End",
     tray:"Tray", card:"card", cards:"cards",
@@ -135,10 +135,10 @@ const LANG = {
     coWhen:"best for", coWhenItems:["Group with facilitation","Performance before audience","Politicising the intimate"],
     nsTitle:"Natures Sociales", nsSub:"Deconstructing the natural",
     nsDesc:"Competition is not the law of the jungle. Deconstruct naturalistic fictions through the body.",
-    nsWhen:"best for", nsWhenItems:["Public sensitised to ecology and social issues","Questioning received ideas","Connecting life sciences and politics"],
+    nsWhen:"best for", nsWhenItems:["Best in a group","Public sensitised to ecology and social issues","Questioning received ideas","Connecting life sciences and politics"],
     myTitle:"Mythologies", mySub:"World cosmologies",
     myDesc:"Creation myths and mythic figures from around the world as somatic scores. Inhabiting other ways of standing in the world.",
-    myWhen:"best for", myWhenItems:["Spiritual and cultural exploration","Working with stories and the imaginary","Connection to world traditions","Depth and inner availability"],
+    myWhen:"best for", myWhenItems:["Alone or in a group","Spiritual and cultural exploration","Working with stories and the imaginary","Connection to world traditions"],
 
     scoreCompose:"Compose a score",
     scoreSelected:"Composed score",
@@ -224,7 +224,7 @@ function Timer({onClose,lang}){
   </div>);
 }
 
-function ChoiceScreen({onChoose,onMixed,lang,setLang}){
+function ChoiceScreen({onChoose,onMixed,onRandomDeck,lang,setLang}){
   useScrollTop(true);
   const L=LANG[lang];
   const groups = [
@@ -302,7 +302,10 @@ function ChoiceScreen({onChoose,onMixed,lang,setLang}){
         <div style={{opacity:0.3}}><Rings seed={8} color={T.water} size={32}/></div>
         <div style={{flex:1}}>
           <p style={{fontSize:"12px",fontStyle:"italic",color:T.inkMid,margin:"0 0 8px"}}>{L.orMix} — {L.mixDesc}</p>
-          <Pill small color={T.water} outline onClick={onMixed}>{L.startMixed}</Pill>
+          <div style={{display:"flex",gap:"8px",flexWrap:"wrap"}}>
+            <Pill small color={T.water} outline onClick={onRandomDeck}>{L.randomDeck}</Pill>
+            <Pill small color={T.water} outline onClick={onMixed}>{L.allCardsBtn}</Pill>
+          </div>
         </div>
       </div>
     </div>
@@ -673,8 +676,8 @@ function BrowseScreen({activeDeck,onBack,lang,setLang}){
 
   const bg=isDark?"#0f0c14":isVivant?"#f0f5ec":isTerritoires?"#f0f4f8":isTraversees?"#f4faf0":activeDeck==="corps_monde"?"#faf5ed":activeDeck==="contaminations"?"#fdf3f0":activeDeck==="natures_sociales"?"#f0f3f8":activeDeck==="mythologies"?"#f5f0f8":activeDeck==="terrains"?"#fdf8f0":T.paper;
 
-  const deckName=activeDeck==="choreo"?"Choreospores":activeDeck==="milieux"?"Milieux":activeDeck==="terrains"?"Terrains":activeDeck==="vivant"?(lang==="fr"?"Avec le vivant":"With the living"):activeDeck==="territoires"?(lang==="fr"?"Territoires croisés":"Crossed territories"):activeDeck==="traversees"?"Traversées":activeDeck==="corps_monde"?"Corps-Monde":activeDeck==="contaminations"?"Contaminations":activeDeck==="natures_sociales"?"Natures Sociales":activeDeck==="mythologies"?"Mythologies":activeDeck==="pellicules"?"Pellicules":activeDeck==="umwelten"?"Umwelten":(lang==="fr"?"Tous":"All");
-  const deckSub=activeDeck==="choreo"?"Mycoscores — Maija Hirvanen":activeDeck==="milieux"?(lang==="fr"?"Deck éco-somatique":"Ecosomatic deck"):activeDeck==="terrains"?(lang==="fr"?"Jeu de paysage":"Landscape play"):activeDeck==="vivant"?(lang==="fr"?"Rencontres dehors":"Encounters outside"):activeDeck==="territoires"?(lang==="fr"?"Acteurs de territoire":"Territory actors"):activeDeck==="traversees"?(lang==="fr"?"Scores dans le vivant":"Scores in the living world"):activeDeck==="corps_monde"?(lang==="fr"?"Échelles et appartenance":"Scales and belonging"):activeDeck==="contaminations"?(lang==="fr"?"Corps et industrie":"Bodies and industry"):activeDeck==="natures_sociales"?(lang==="fr"?"Déconstruire le naturel":"Deconstructing the natural"):activeDeck==="mythologies"?(lang==="fr"?"Cosmologies du monde":"World cosmologies"):activeDeck==="pellicules"?(lang==="fr"?"Explorations filmiques du vivant":"Filmic explorations of the living"):activeDeck==="umwelten"?(lang==="fr"?"Les mondes sensibles du vivant":"The sensory worlds of the living"):(lang==="fr"?"Session mixte":"Mixed session");
+  const deckName=activeDeck==="choreo"?"Choreospores":activeDeck==="milieux"?"Milieux":activeDeck==="terrains"?"Terrains":activeDeck==="vivant"?(lang==="fr"?"Avec le vivant":"With the living"):activeDeck==="territoires"?(lang==="fr"?"Territoires croisés":"Crossed territories"):activeDeck==="traversees"?"Traversées":activeDeck==="corps_monde"?"Corps-Monde":activeDeck==="contaminations"?"Contaminations":activeDeck==="natures_sociales"?"Natures Sociales":activeDeck==="mythologies"?"Mythologies":activeDeck==="pellicules"?"Pellicules":activeDeck==="umwelten"?"Umwelten":(lang==="fr"?"Toutes les cartes":"All cards");
+  const deckSub=activeDeck==="choreo"?"Mycoscores — Maija Hirvanen":activeDeck==="milieux"?(lang==="fr"?"Deck éco-somatique":"Ecosomatic deck"):activeDeck==="terrains"?(lang==="fr"?"Jeu de paysage":"Landscape play"):activeDeck==="vivant"?(lang==="fr"?"Rencontres dehors":"Encounters outside"):activeDeck==="territoires"?(lang==="fr"?"Acteurs de territoire":"Territory actors"):activeDeck==="traversees"?(lang==="fr"?"Scores dans le vivant":"Scores in the living world"):activeDeck==="corps_monde"?(lang==="fr"?"Échelles et appartenance":"Scales and belonging"):activeDeck==="contaminations"?(lang==="fr"?"Corps et industrie":"Bodies and industry"):activeDeck==="natures_sociales"?(lang==="fr"?"Déconstruire le naturel":"Deconstructing the natural"):activeDeck==="mythologies"?(lang==="fr"?"Cosmologies du monde":"World cosmologies"):activeDeck==="pellicules"?(lang==="fr"?"Explorations filmiques du vivant":"Filmic explorations of the living"):activeDeck==="umwelten"?(lang==="fr"?"Les mondes sensibles du vivant":"The sensory worlds of the living"):(lang==="fr"?"Pioche dans les 12 decks":"Draw from all 12 decks");
 
   if(isTraversees&&drawnCards)return <MultiDraw cards={drawnCards} lang={lang} onBack={()=>setDrawnCards(null)}/>;
   if(selectedCard)return(<>{isDark||isTraversees||isVivant||isTerritoires||activeDeck==="corps_monde"||activeDeck==="contaminations"||activeDeck==="natures_sociales"||activeDeck==="mythologies"?<CardDetail card={selectedCard} onBack={()=>setSelectedCard(null)} lang={lang}/>:<CardDetail card={selectedCard} onBack={()=>setSelectedCard(null)} lang={lang}/>}{showTimer&&<Timer onClose={()=>setShowTimer(false)} lang={lang}/>}</>);
@@ -782,6 +785,6 @@ export default function App(){
   const[activeDeck,setActiveDeck]=useState(null);const[lang,setLang]=useState("fr");
   const savedScroll=useRef(0);
   const handleBack=()=>{const y=savedScroll.current;setActiveDeck(null);requestAnimationFrame(()=>window.scrollTo(0,y));};
-  if(!activeDeck)return <ChoiceScreen onChoose={(deck)=>{savedScroll.current=window.scrollY;setActiveDeck(deck);}} onMixed={()=>{savedScroll.current=window.scrollY;setActiveDeck("mixed");}} lang={lang} setLang={setLang}/>;
+  if(!activeDeck)return <ChoiceScreen onChoose={(deck)=>{savedScroll.current=window.scrollY;setActiveDeck(deck);}} onMixed={()=>{savedScroll.current=window.scrollY;setActiveDeck("mixed");}} onRandomDeck={()=>{const decks=["vivant","terrains","traversees","choreo","pellicules","milieux","mythologies","umwelten","territoires","corps_monde","contaminations","natures_sociales"];const r=decks[Math.floor(Math.random()*decks.length)];savedScroll.current=window.scrollY;setActiveDeck(r);}} lang={lang} setLang={setLang}/>;
   return(<><BrowseScreen activeDeck={activeDeck} onBack={handleBack} lang={lang} setLang={setLang}/><style>{`@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');*{box-sizing:border-box;}::-webkit-scrollbar{display:none;}button:focus{outline:none;}textarea:focus{outline:none;}`}</style></>);
 }
