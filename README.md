@@ -2,7 +2,7 @@
 
 Un jeu de cartes de pratique incarnée, bilingue (FR/EN), pour sentir, traverser et habiter le vivant.
 
-**348 cartes · 12 decks · 4 familles**
+**358 cartes · 12 decks · 4 familles**
 
 ---
 
@@ -23,8 +23,8 @@ d'amorce pour l'écriture ou le dessin, ou de rituel collectif.
 
 ### Premier contact
 *Accessible, dehors, sans pratique préalable*
-- **Avec le vivant** (30) — entrer en relation simple avec un être, un lieu
-- **Terrains** (32) — gestes, jeux somatiques, traces écrites et dessinées
+- **Avec le vivant** (31) — entrer en relation simple avec un être, un lieu
+- **Terrains** (33) — gestes, jeux somatiques, traces écrites et dessinées
 
 ### Scores d'improvisation
 *Partitions de mouvement, de danse et de film*
@@ -34,14 +34,14 @@ d'amorce pour l'écriture ou le dessin, ou de rituel collectif.
 
 ### Présence
 *Profondeur contemplative, cosmologique et sensible*
-- **Milieux** (39) — habiter un milieu, sentir ses échelles et ses flux
+- **Milieux** (41) — habiter un milieu, sentir ses échelles et ses flux
 - **Mythologies** (33) — cosmologies de création du monde entier, par le corps
 - **Umwelten** (32) — entrer dans la perception sensible d'autres êtres
 
 ### Corps et monde
 *Collectif, politique, écologique*
-- **Territoires croisés** (28) — facilitation de conflits territoriaux (ancrer · traverser · composer)
-- **Corps-Monde** (27) — le corps comme lieu où le monde se joue
+- **Territoires croisés** (29) — facilitation de conflits territoriaux (ancrer · traverser · composer)
+- **Corps-Monde** (32) — le corps comme lieu où le monde se joue
 - **Contaminations** (20) — toxicité, porosité, justice environnementale
 - **Natures Sociales** (20) — ce que nos récits sur la nature disent de nos sociétés
 
@@ -84,7 +84,7 @@ Chaque carte propose, selon les decks :
 - PWA installable (fonctionne hors-ligne, sur mobile comme sur ordinateur)
 - Sans backend, sans collecte de données
 - Bilingue FR / EN (bascule instantanée)
-- 348 cartes embarquées en local
+- 358 cartes embarquées en local
 
 ---
 

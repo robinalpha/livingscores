@@ -1,6 +1,6 @@
 # Scores Vivants — Document de présentation
 
-*Version 8.1 · 348 cartes · 12 decks · bilingue FR/EN*
+*Version 8.1 · 358 cartes · 12 decks · bilingue FR/EN*
 
 ---
 
@@ -22,10 +22,10 @@ territoire.
 
 ## Les quatre familles
 
-### 🌱 Premier contact — *62 cartes*
+### 🌱 Premier contact — *64 cartes*
 Accessible, dehors, sans pratique préalable.
-- **Avec le vivant** (30) — relation simple à un être, un lieu
-- **Terrains** (32) — gestes, jeux somatiques, traces écrites et dessinées
+- **Avec le vivant** (31) — relation simple à un être, un lieu
+- **Terrains** (33) — gestes, jeux somatiques, traces écrites et dessinées
 
 ### 🌀 Scores d'improvisation — *87 cartes*
 Partitions de mouvement, de danse et de film.
@@ -33,16 +33,16 @@ Partitions de mouvement, de danse et de film.
 - **Choreospores** (31) — d'après l'œuvre de Maija Hirvanen
 - **Pellicules** (24) — la caméra comme partenaire d'exploration du vivant
 
-### 🕯️ Présence — *104 cartes*
+### 🕯️ Présence — *106 cartes*
 Profondeur contemplative, cosmologique et sensible.
-- **Milieux** (39) — habiter un milieu, sentir ses échelles et ses flux
+- **Milieux** (41) — habiter un milieu, sentir ses échelles et ses flux
 - **Mythologies** (33) — cosmologies de création du monde, par le corps
 - **Umwelten** (32) — entrer dans la perception sensible d'autres êtres
 
-### 🌍 Corps et monde — *95 cartes*
+### 🌍 Corps et monde — *101 cartes*
 Collectif, politique, écologique.
-- **Territoires croisés** (28) — facilitation de conflits territoriaux (ancrer · traverser · composer)
-- **Corps-Monde** (27) — le corps comme lieu où le monde se joue
+- **Territoires croisés** (29) — facilitation de conflits territoriaux (ancrer · traverser · composer)
+- **Corps-Monde** (32) — le corps comme lieu où le monde se joue
 - **Contaminations** (20) — toxicité, porosité, justice environnementale
 - **Natures Sociales** (20) — ce que nos récits sur la nature disent de nos sociétés
 
@@ -109,7 +109,7 @@ Selon les decks, une carte propose :
 ## Technique
 
 Application web React 18 + Vite · PWA installable et hors-ligne ·
-sans backend ni collecte de données · bilingue FR/EN · 348 cartes en local.
+sans backend ni collecte de données · bilingue FR/EN · 358 cartes en local.
 
 ---
 
